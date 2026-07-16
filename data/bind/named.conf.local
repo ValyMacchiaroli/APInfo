@@ -1,0 +1,4 @@
+zone "apinfo.it" {
+    type master;
+    file "/etc/bind/zones/masters/db.apinfo.it";
+};

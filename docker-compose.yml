@@ -1,0 +1,18 @@
+services:
+  web-app:
+    image: php:8.2.32-apache
+    ports:
+      - 80:80
+    volumes:
+      - ./data/apache/sites/:/var/www/html/
+      - ./data/apache/conf/sites_enabled/:/etc/apache2/sites_enabled/
+  
+  dns:
+    image: ubuntu/bind9:9.20-26.04_stable
+    ports:
+      - "10.10.14.173:53:53/tcp"
+      - "10.10.14.173:53:53/udp"
+    volumes:
+      - ./data/bind/named.conf.options:/etc/bind/named.conf.options
+      - ./data/bind/named.conf.local:/etc/bind/named.conf.local
+      - ./data/bind/zones/masters/:/etc/bind/zones/masters/
