@@ -16,3 +16,8 @@ services:
       - ./data/bind/named.conf.options:/etc/bind/named.conf.options
       - ./data/bind/named.conf.local:/etc/bind/named.conf.local
       - ./data/bind/zones/masters/:/etc/bind/zones/masters/
+  
+  database:
+    build: .
+    volumes:
+    - ./data/memsearch/:$HOME/.memsearch/
