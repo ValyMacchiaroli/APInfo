@@ -2,3 +2,9 @@ zone "apinfo.it" {
     type master;
     file "/etc/bind/zones/masters/db.apinfo.it";
 };
+
+zone "projectwork.lan" {
+    type slave;
+    file "/etc/bind/zones/slaves/db.projectwork.lan";
+    masters { 10.10.12.101; };
+};

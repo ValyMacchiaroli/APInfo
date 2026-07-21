@@ -1,0 +1,4 @@
+1. Pagine: base.php; home.php; results.php; details.php;
+2. Database: memsearch;
+3. Algoritmo IA Semantica (da ricercare) (Zero-Shot Classification)
+4. Web Scraper (da ricercare)

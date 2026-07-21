@@ -2,18 +2,18 @@
 <html>
     <body>
         <?php
-        if (empty($_POST["description"])) {
-            $description = "";
-        } else {
-            $description = test_input($_POST["description"]);
-        }
+            if (empty($_POST["description"])) {
+                $description = "";
+            } else {
+                $description = test_input($_POST["description"]);
+            }
 
-        function test_input($data) {
-            $data = trim($data);
-            $data = stripslashes($data);
-            $data = htmlspecialchars($data);
-            return $data;
-        }
+            function test_input($data) {
+                $data = trim($data);
+                $data = stripslashes($data);
+                $data = htmlspecialchars($data);
+                return $data;
+            }
         ?>
         <form method="post">
             Description: <br><textarea name="description" rows="5" cols="40"><?php echo $description;?></textarea>
@@ -26,7 +26,7 @@
                 'messages'     =>   [
                     [
                         'role'      =>  'system',
-                        'content'   =>  'Respond quickly, using no more than 20 words.'
+                        'content'   =>  'Respond quickly, using no more than 15 words.'
                     ],
                     [
                         'role'      =>  'user',
@@ -34,10 +34,10 @@
                     ]
                 ],
                 'temperature'   =>  0.0,
-                'max_tokens'    =>  40,
+                'max_tokens'    =>  1000,
                 'stream'        =>  false
             ];
-            $ch = curl_init('http://10.10.14.124:1234/v1/chat/completions');
+            $ch = curl_init('http://10.10.12.92:1234/v1/chat/completions');
             curl_setopt_array($ch, [
                 CURLOPT_RETURNTRANSFER  =>  true,
                 CURLOPT_POST            =>  true,
